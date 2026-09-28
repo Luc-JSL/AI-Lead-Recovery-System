@@ -9,6 +9,16 @@ Three rules:
 
 ---
 
+## 0. The front desk
+**"What's it about?"**
+> "Honestly, I'm a local guy. I help HVAC shops catch the calls they miss after hours. I called your line [when] and it went to voicemail, and I wanted to ask [owner] how he handles those. I'm not selling ads or Google listings. Is he the right person, or is it you?"
+
+**"Is this a sales call?"**
+> "Yeah, it is, I won't pretend it's not. It's short. If it's not a fit, he can tell me no."
+
+**"He's not interested."**
+> "Totally fair. Can I ask you one thing, since you probably deal with it: when calls come in after hours, what happens with them in the morning?"
+
 ## 1. About you
 **"Who are you? What is this?"**
 > "I'm Jordan with Returnline. I'm local here in Conway. I help HVAC shops catch the calls they miss, so those customers don't call the next company."
