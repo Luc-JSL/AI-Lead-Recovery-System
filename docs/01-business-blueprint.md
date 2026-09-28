@@ -147,3 +147,16 @@ Before go-live with every client, record a **baseline**: missed calls per week, 
 | Fri | 11:50-4:00 (work 4-11pm) | Walk-ins 12:15-3:30 |
 | Sat | before 10am, after 5pm (work 10-5) | Rest / optional after-hours test calls |
 | Sun | after 5pm (work 10-5) | Weekly review with Claude at 6:47pm |
+
+**2026-09-28 (goals raised)**
+- **$2,000/mo is the first milestone, not the ceiling.** The milestone ladder (estimates at $497/client, after tool costs and 25% set aside for taxes):
+
+| Milestone | Clients | MRR | Est. take-home |
+|---|---|---|---|
+| Quit the job | 6 | ~$2,980 | ~$2,000/mo |
+| Z06 fund | 12 | ~$5,960 | ~$4,200/mo |
+| Full-time agency | 25 | ~$12,400 | ~$8,800/mo |
+| Hire a team | 50 | ~$24,900 | ~$17,000/mo before hiring costs |
+
+Past 25 clients, one founder can't serve everyone alone. That's when we hire (SOP manager first, then a human customer-success person) and add upsells such as AI after-hours call answering.
+- **Business email:** jordan@ on the Returnline domain for outreach, plus hello@ as the public contact on the one-pager and website.

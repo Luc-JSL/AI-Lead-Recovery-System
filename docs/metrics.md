@@ -1,6 +1,6 @@
 # Weekly metrics
 
-Goal: $2,000/mo take-home for 3 straight months, plus 3 months of expenses saved. At that point the founder quits the job.
+Milestones: quit the job (6 clients, ~$2,000/mo take-home held 3 months + 3 months of expenses saved) → Z06 fund (12) → full-time agency (25) → hire a team (50).
 
 | Week of | Hours | Shops contacted | Conversations | Pilots | Paying clients | MRR | Spend | Est. take-home |
 |---|---|---|---|---|---|---|---|---|
