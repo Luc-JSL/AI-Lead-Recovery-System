@@ -2,7 +2,7 @@
 
 | Company | City | Status | Next step | Date |
 |---|---|---|---|---|
-| Mathis Heating & Cooling | Conway, AR | after-hours tested | Call Todd Mathis Mon 1pm (priority 1) | 2026-09-28 |
+| Mathis Heating & Cooling | Conway, AR | callback set | Todd is in at 8:00am: call Tue 9/29 at 8:00am sharp (`call-mathis.md`) | 2026-09-28 |
 | Freyaldenhoven Heating and Cooling | Conway, AR | after-hours tested | Call John Freyaldenhoven Mon (priority 2) | 2026-09-28 |
 | Stevenson Heat & Air | Conway, AR | after-hours tested | Call Todd Stevenson Mon (priority 3) | 2026-09-28 |
 | Top Notch Heating & Air LLC | Conway, AR | after-hours tested | Call Steven Long Mon (priority 5, weaker fit) | 2026-09-28 |
