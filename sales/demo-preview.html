@@ -1,0 +1,156 @@
+<title>Returnline Missed-Call Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Tokens from dashboard/DESIGN.md (dark-first) */
+:root{
+  color-scheme:dark;
+  --bg-000:#060b16; --bg-100:#0a1224; --bg-200:#0f1a31; --bg-300:#15223d; --bg-400:#1c2c4d;
+  --line-100:#1c2a45; --line-200:#5d72a0;
+  --ink-100:#e6ecf7; --ink-200:#a7b3cb; --ink-300:#8190ad;
+  --accent:#3ddcff; --on-accent:#04121c; --accent-soft:#3ddcff1f;
+  --good:#3ecf8e; --good-soft:#3ecf8e1f; --warn:#f2b441; --warn-soft:#f2b4411f; --crit:#ff6e6e; --crit-soft:#ff6e6e1f;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px; --sp-8:32px; --sp-10:40px;
+  --r-sm:4px; --r-md:6px; --r-lg:10px; --r-pill:999px;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg-000:#eef1f6; --bg-100:#f5f7fb; --bg-200:#ffffff; --bg-300:#f0f3f8; --bg-400:#e3e9f2;
+  --line-100:#e1e6ef; --line-200:#76839c;
+  --ink-100:#0d1629; --ink-200:#46536d; --ink-300:#5f6c86;
+  --accent:#0070a8; --on-accent:#ffffff; --accent-soft:#0070a814;
+  --good:#177a4c; --good-soft:#177a4c14; --warn:#8f5a00; --warn-soft:#8f5a0014; --crit:#c42b2b; --crit-soft:#c42b2b14;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg-100)}
+body{margin:0;color:var(--ink-100);font:400 13px/18px var(--font);-webkit-font-smoothing:antialiased;padding-inline:var(--sp-4);padding-block:var(--sp-6) var(--sp-10)}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-6)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:var(--sp-3)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);font-weight:700;font-size:14px;color:var(--ink-200)}
+.head h1{font-size:28px;line-height:32px;font-weight:600;letter-spacing:-.01em;margin-top:var(--sp-2);text-wrap:balance}
+.head p{color:var(--ink-200);margin-top:var(--sp-2);max-width:56ch;font-size:14px;line-height:20px}
+.btn{display:inline-flex;align-items:center;gap:6px;height:32px;padding-inline:var(--sp-3);border-radius:var(--r-md);border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font:600 13px var(--font);cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.label{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-300)}
+.pill{display:inline-flex;align-items:center;gap:6px;height:20px;padding-inline:var(--sp-2);border-radius:var(--r-pill);font-size:11px;font-weight:600;background:var(--warn-soft);color:var(--warn);white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.stage{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--sp-5);align-items:start}
+@media (max-width:760px){.stage{grid-template-columns:1fr}}
+.phone{background:var(--bg-000);border:1px solid var(--line-100);border-radius:28px;padding:var(--sp-3);max-width:380px;width:100%;justify-self:center}
+.screen{background:var(--bg-200);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-height:520px}
+.bar{display:flex;flex-direction:column;align-items:center;gap:2px;padding:var(--sp-3) var(--sp-4);border-bottom:1px solid var(--line-100)}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--bg-400);display:grid;place-items:center;font-weight:600;color:var(--ink-200)}
+.bar b{font-size:13px;font-weight:600}
+.bar span{font-size:11px;color:var(--ink-300)}
+.thread{flex:1;padding:var(--sp-4) var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-2)}
+.sys{align-self:center;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--crit);background:var(--crit-soft);border-radius:var(--r-pill);padding:4px var(--sp-3);font-weight:600}
+.time{align-self:center;font-size:11px;color:var(--ink-300);margin-top:var(--sp-1)}
+.msg{max-width:82%;padding:var(--sp-2) var(--sp-3);border-radius:16px;font-size:13px;line-height:18px;transition:opacity .35s ease,transform .35s ease}
+.msg.in{align-self:flex-start;background:var(--bg-400);color:var(--ink-100);border-bottom-left-radius:var(--r-sm)}
+.msg.out{align-self:flex-end;background:var(--accent);color:var(--on-accent);border-bottom-right-radius:var(--r-sm)}
+.hide{opacity:0;transform:translateY(6px)}
+.side{display:flex;flex-direction:column;gap:var(--sp-4)}
+.card{background:var(--bg-200);border:1px solid var(--line-100);border-radius:var(--r-md);padding:var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-2)}
+.card h2{font-size:14px;font-weight:600}
+.alert{font-family:var(--font);font-size:12px;line-height:18px;color:var(--ink-100);background:var(--bg-300);border-radius:var(--r-md);padding:var(--sp-3);white-space:pre-wrap;margin:0;transition:opacity .35s ease}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--sp-3)}
+.facts li{display:grid;grid-template-columns:20px 1fr;gap:var(--sp-2);color:var(--ink-200)}
+.facts b{color:var(--ink-100);font-weight:600;display:block}
+.facts svg{margin-top:1px;color:var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-2)}
+@media (max-width:760px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.step{border:1px solid var(--line-100);border-radius:var(--r-md);padding:var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-1)}
+.step span{font-size:11px;color:var(--ink-300);font-weight:600}
+.step b{font-weight:600}
+.note{font-size:12px;color:var(--ink-300)}
+@media (prefers-reduced-motion: reduce){.msg,.alert{transition:none}}
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <div>
+      <div class="brand">
+        <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8.5" fill="none" stroke="var(--line-200)" stroke-width="3"/><path d="M11 2.5 A8.5 8.5 0 1 1 3.6 15.2" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/></svg>
+        Returnline
+      </div>
+      <h1>What happens when you miss a call</h1>
+      <p>A homeowner calls at 9:12pm and nobody can pick up. Within a minute they get a text from your shop, and you get the job details on your phone.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:var(--sp-2)">
+      <span class="pill">Example conversation · fictional customer</span>
+      <button class="btn" type="button" id="play">▶ Play it</button>
+    </div>
+  </header>
+
+  <div class="steps" aria-label="How it works">
+    <div class="step"><span>1</span><b>Call goes unanswered</b><p class="note">Your phone rings first, like always.</p></div>
+    <div class="step"><span>2</span><b>Text within a minute</b><p class="note">From your shop's name, not ours.</p></div>
+    <div class="step"><span>3</span><b>Gets the job details</b><p class="note">Problem, address, urgency, best time.</p></div>
+    <div class="step"><span>4</span><b>You confirm the time</b><p class="note">The job request lands on your phone.</p></div>
+  </div>
+
+  <div class="stage">
+    <div class="phone" aria-label="Customer's phone">
+      <div class="screen">
+        <div class="bar"><div class="avatar">RD</div><b>Returnline Demo Heating &amp; Air</b><span>Customer's phone</span></div>
+        <div class="thread" id="thread">
+          <div class="sys">✕ Missed call · 9:12 PM</div>
+          <div class="time">Text · 9:12 PM</div>
+          <div class="msg out">Hi, it's Returnline Demo Heating &amp; Air. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out</div>
+          <div class="msg in">AC stopped blowing cold. House is 84 degrees</div>
+          <div class="msg out">Sorry about that, no fun in this heat. What's the address for the service?</div>
+          <div class="msg in">412 Oak St, Conway</div>
+          <div class="msg out">Thanks! Is anyone in the home elderly, sick, or a baby? Just so we know how urgent this is.</div>
+          <div class="msg in">No, just me and my husband</div>
+          <div class="msg out">Got it. What's your first name, and when works best for a tech to come out?</div>
+          <div class="msg in">Sarah. Tomorrow morning if possible</div>
+          <div class="msg out">Thanks Sarah! I've sent this to our team. Someone from the office will reach out first thing in the morning to confirm your time.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="card" aria-label="Owner's phone">
+        <span class="label">Owner's phone · 9:16 PM</span>
+<pre class="alert" id="alert">NEW JOB REQUEST - STANDARD
+Name: Sarah
+Phone: (501) 555-0142
+Address: 412 Oak St, Conway (in area: yes)
+System: Central AC
+Problem: AC not cooling, house at 84°F
+Wants: tomorrow morning
+Customer was told the office will confirm the time.</pre>
+      </div>
+      <div class="card">
+        <h2>What stays the same for you</h2>
+        <ul class="facts">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>Same phone number</b>Unanswered calls forward to us. Turn it off anytime.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>You run your schedule</b>The text never promises a time. Your office confirms every job.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>Emergencies go to a person</b>Gas smell or CO alarm: the customer gets safety instructions and you get an urgent alert.</span></li>
+        </ul>
+      </div>
+      <p class="note">Free 2-week trial. We start by counting your missed calls from your own call log.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById("play"),items=[].slice.call(document.querySelectorAll("#thread > *")),alertEl=document.getElementById("alert"),timers=[];
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function showAll(){timers.forEach(clearTimeout);timers=[];items.forEach(function(e){e.classList.remove("hide")});alertEl.style.opacity=1}
+  btn.addEventListener("click",function(){
+    if(reduce){showAll();return}
+    timers.forEach(clearTimeout);timers=[];
+    items.forEach(function(e){e.classList.add("hide")});alertEl.style.opacity=.15;
+    var t=300;
+    items.forEach(function(e,i){var isIn=e.classList.contains("in");t+=isIn?1300:(i<2?500:900);timers.push(setTimeout(function(){e.classList.remove("hide")},t))});
+    timers.push(setTimeout(function(){alertEl.style.opacity=1},t+900));
+    btn.textContent="↻ Replay";
+  });
+})();
+</script>
