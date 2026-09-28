@@ -3,7 +3,7 @@
 | Company | City | Status | Next step | Date |
 |---|---|---|---|---|
 | Mathis Heating & Cooling | Conway, AR | callback set | Todd is in at 8:00am: call Tue 9/29 at 8:00am sharp (`call-mathis.md`) | 2026-09-28 |
-| Freyaldenhoven Heating and Cooling | Conway, AR | email requested | Front desk: "send an email, he won't take calls". Email sent → follow up Thu 10/1 | 2026-09-28 |
+| Freyaldenhoven Heating and Cooling | Conway, AR | email requested | Email john@freyaldenhoven.com (as heard on the call; confirm if it bounces). Follow up Thu 10/1 | 2026-09-28 |
 | Stevenson Heat & Air | Conway, AR | after-hours tested | Call Todd Stevenson Mon (priority 3) | 2026-09-28 |
 | Top Notch Heating & Air LLC | Conway, AR | after-hours tested | Call Steven Long Mon (priority 5, weaker fit) | 2026-09-28 |
 | Dewees HVAC | Conway, AR | after-hours tested | Call Joshua Dewees Mon (priority 4) | 2026-09-28 |
