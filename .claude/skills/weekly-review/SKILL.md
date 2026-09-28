@@ -15,6 +15,7 @@ description: Weekly COO/CFO check-in for the HVAC lead-recovery agency. Collects
    - The biggest obstacle
 3. Add a row for this week to `docs/metrics.md`.
 4. Calculate estimated take-home as MRR minus monthly costs, then minus 25% set aside for taxes. Compare it to the next milestone in the ladder in `docs/01-business-blueprint.md` (quit the job at 7 clients, Z06 at 12, full-time agency at 25, team at 50). Also check the quit rule: 3 straight months at or above $2,000 take-home, plus 3 months of expenses saved.
-5. Diagnose honestly. Low contacts is an activity problem; low conversations is a targeting or script problem; low conversions is an offer problem. Say which one it is.
-6. Give exactly 3 priorities for next week, each with a number attached (for example "contact 25 shops").
-7. Commit the updated metrics file.
+5. Calculate conversion rates between each funnel stage (researched → contacted → conversations → positive → visits/calls → trials → closed) and name the single bottleneck stage. Update `docs/finance.md` (revenue, each cost line, gross and net profit) and flag any tool that no longer justifies its cost. Check the hours split: if building beat selling before the first customer, say so.
+6. Diagnose honestly. Low contacts is an activity problem; low conversations is a targeting or script problem; low conversions is an offer problem. Say which one it is.
+7. Give exactly 3 priorities for next week, each with a number attached (for example "contact 25 shops").
+8. Commit the updated metrics and finance files.
