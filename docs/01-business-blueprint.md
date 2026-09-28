@@ -132,3 +132,18 @@ Before go-live with every client, record a **baseline**: missed calls per week, 
 - **Pricing:** standard $497/mo + $497 setup. The first 3 clients get a $397/mo founding rate locked for 12 months, in exchange for a case study and testimonial.
 - **Goals:** quit the job at $2,000/mo take-home held for 3 months (6 clients). Then build a Corvette fund (C6, price TBD) before age 22, which needs about 11-12 clients.
 - **Weekly review:** automated every Sunday at 6:47pm Central.
+
+**2026-09-28 (names & schedule)**
+- **Company name: Returnline.** Before buying, check the domain, the Arkansas Secretary of State and USPTO.
+- **Car goal: 2018/2019 Corvette Z06.** That's a C7, not a C6. It will be financed: a strong down payment plus a monthly loan payment.
+- **Founder's weekly schedule (Central time):**
+
+| Day | Free for Returnline | Plan |
+|---|---|---|
+| Mon | after 11:50 | Walk-ins 1:00-4:00, after-hours test calls 7:00-8:00pm |
+| Tue | 1:00-4:00 (work 4-11pm) | Follow-ups, email, pilot setup |
+| Wed | 11:50-3:00 (lab 3pm) | Walk-ins 12:15-2:30 |
+| Thu | 1:00-4:00 (work 4-11pm) | Follow-ups, client check-ins |
+| Fri | 11:50-4:00 (work 4-11pm) | Walk-ins 12:15-3:30 |
+| Sat | before 10am, after 5pm (work 10-5) | Rest / optional after-hours test calls |
+| Sun | after 5pm (work 10-5) | Weekly review with Claude at 6:47pm |
