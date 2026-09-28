@@ -19,7 +19,7 @@ We fill this in at the Day 0 intake (see `docs/02-sales-and-delivery.md`, Part 2
 | Setting | Placeholder | What it is | Required | Default |
 |---|---|---|---|---|
 | Business name | `{{business_name}}` | Public name, as customers know it | Yes | none |
-| Short name for texts | `{{business_short_name}}` | The name used inside texts. **40 characters max** so the first text stays under 160 | Yes | same as business name |
+| Short name for texts | `{{business_short_name}}` | The name used inside texts. **35 characters max**, so every templated text stays at 160 characters or under (the M7a nudge is the tightest) | Yes | same as business name |
 | City and state | `{{business_city_state}}` | For example "Conway, AR" | Yes | none |
 | Main business phone | `{{business_phone}}` | The number customers call. It's fine to show it to customers | Yes | none |
 | Business hours | `{{business_hours}}` | Days and times the office answers | Yes | none |
@@ -90,7 +90,9 @@ We fill this in at the Day 0 intake (see `docs/02-sales-and-delivery.md`, Part 2
 | Quiet hours | `{{quiet_hours}}` | No follow-up nudges in this window, in the customer's local time. It doesn't apply to direct replies to the customer or to emergency scripts | Yes | 8:00pm-8:00am |
 | Morning follow-up time | `{{followup_morning_time}}` | When the next-morning nudge goes out | Yes | 9:00am |
 | Repeat-call window | `{{dedupe_window}}` | If the same number called within this many hours, there's no new text-back | Yes | 24 hours |
-| A2P 10DLC status | (intake note) | Registration filed? Approved? **No live texting until approved** | Yes | not filed |
+| A2P 10DLC status | (intake note) | Registration filed? Approved? **No live texting until approved.** This applies to every number, including the demo number. The brand name must match the name used in the texts | Yes | not filed |
+| Voicemail greeting installed? | (intake note) | The M21 greeting is recorded or set up on the line callers reach when nobody answers | Yes | no |
+| Appointment reminders | `{{reminder_timing}}` | BOOKING mode only: when the M22 reminder goes out | BOOKING only | 5:00pm the day before |
 | Call forwarding set up? | (intake note) | Conditional forwarding (busy or no answer) goes to the GHL number | Yes | no |
 
 ---
@@ -104,7 +106,7 @@ We fill this in at the Day 0 intake (see `docs/02-sales-and-delivery.md`, Part 2
 | Setting | Value (FICTIONAL) |
 |---|---|
 | `{{business_name}}` | Returnline Demo Heating & Air |
-| `{{business_short_name}}` | Returnline Demo Heating & Air (29 characters, under the 40 cap) |
+| `{{business_short_name}}` | Returnline Demo Heating & Air (29 characters, under the 35 cap) |
 | `{{business_city_state}}` | Conway, AR |
 | `{{business_phone}}` | (501) 555-0100 |
 | `{{business_hours}}` | Mon-Fri 7:30am-5:30pm, Sat 8am-12pm, closed Sunday |
@@ -140,6 +142,8 @@ We fill this in at the Day 0 intake (see `docs/02-sales-and-delivery.md`, Part 2
 | `{{dedupe_window}}` | 24 hours |
 | A2P 10DLC status | **Required for the demo too.** Carriers filter texts from unregistered numbers, so the demo number must be A2P-registered under the Returnline brand, with a campaign for missed-call follow-up and appointment texts, before any demo. Status: not filed. The founder files it in GHL. No live demo until it's approved |
 | Call forwarding | n/a for the demo (we call the demo number directly and don't answer) |
+| Voicemail greeting | M21, set up on the demo number |
+| `{{reminder_timing}}` | 5:00pm Central the day before |
 
 ### How a real client's sheet differs from the demo
 

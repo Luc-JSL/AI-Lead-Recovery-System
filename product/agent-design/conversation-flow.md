@@ -6,12 +6,13 @@ One design, two modes:
 - **REQUEST** (the default for real clients): collect the details and a preferred window, tell the customer the office will confirm, alert the owner. No time is ever promised.
 - **BOOKING** (the sales demo, and clients with a maintained calendar): same qualifying, then offer 2-3 open slots from the GHL calendar and book one.
 
-Related files: `system-prompt.md` (bot instructions), `messages.md` (every fixed text, M1-M20), `client-settings-template.md` (placeholders), `test-conversations.md` (safety-qa scripts).
+Related files: `system-prompt.md` (bot instructions), `messages.md` (every fixed text, M1-M22), `client-settings-template.md` (placeholders), `test-conversations.md` (safety-qa scripts).
 
 ## 1. Flowchart
 
 ```mermaid
 flowchart TD
+    A0["Caller hears M21 greeting: a text is coming, Reply STOP, emergencies call 911"] --> A
     A["Missed call on the GHL number"] --> B{"Same number texted in the last 24h, or opted out?"}
     B -- "Opted out / DND" --> B0["Send nothing"]
     B -- "Active conversation" --> B1["No new text-back. Owner gets M6e REPEAT CALL"]
@@ -66,6 +67,7 @@ flowchart TD
     K1 --> K2{"Picks one?"}
     K2 -- "Yes" --> K3["Book it. M11b confirmation"]
     K3 --> K4["JOB COMPLETE. Owner gets M6b NEW BOOKED JOB"]
+    K4 --> K5["Day before: M22 reminder. Reschedule or cancel replies go to the office via M8"]
     K2 -- "None work or no slots" --> R2
 
     R3 --> Z["Later texts: short answer or JOB UPDATE. Never restart"]
@@ -80,7 +82,7 @@ Emergency and opt-out checks run on **every** inbound message, including after t
 
 | Step | Collects | Bot text (demo wording) | Skip when | Counts | Stored in |
 |---|---|---|---|---|---|
-| M1 | Problem (asked) | "Hi, it's Demo Heating & Air. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out" | Never (except dedupe or DND) | 1 | n/a |
+| M1 | Problem (asked) | "Hi, it's Returnline Demo Heating & Air. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out" | Never (except dedupe or DND) | 1 | n/a |
 | A | Problem (clarify) | "Got it. What's it doing, or not doing?" | The first answer is clear. Ask at most once | +1 | `rl_problem` |
 | B | System type | "Is that your AC, furnace or heat pump? It's fine if you're not sure." | Obvious from the problem | +1 | `rl_system_type` |
 | C | Urgency (+ AT-RISK) | "How soon do you need someone: today, or is later this week OK?" | They already said, e.g. "need someone today" | +1 | `rl_urgency`, `rl_at_risk` |
@@ -97,7 +99,7 @@ Emergency and opt-out checks run on **every** inbound message, including after t
 
 | # | Who | Text |
 |---|---|---|
-| 1 | Bot (M1) | Hi, it's Demo Heating & Air. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out |
+| 1 | Bot (M1) | Hi, it's Returnline Demo Heating & Air. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out |
 | | Customer | AC stopped cooling, it's 84 in here |
 | 2 | Bot (C) | Sorry to hear that, no fun in this heat. How soon do you need someone: today, or is later this week OK? |
 | | Customer | today if possible |
@@ -107,7 +109,7 @@ Emergency and opt-out checks run on **every** inbound message, including after t
 | | Customer | Mike |
 | 5 | Bot (F) | What day and time works best for you? We usually do morning (8am-12pm) or afternoon (12-4pm). The office will confirm. |
 | | Customer | today afternoon or tomorrow morning |
-| 6 | Bot (close) | Thanks, Mike! I've sent this to the Demo Heating & Air team. The office will reach out to confirm a time. Reply here if anything changes. If anyone at home feels sick from the heat, call 911. |
+| 6 | Bot (close) | Thanks, Mike! I've sent this to the Returnline Demo Heating & Air team. The office will reach out to confirm a time. Reply here if anything changes. If anyone at home feels sick from the heat, call 911. |
 
 The owner then gets M6a: `NEW JOB REQUEST - URGENT`.
 
@@ -131,7 +133,9 @@ All names start with `RL-` so they're easy to find. Every item marked [VERIFY IN
 | `RL-EmergencyNet` | Customer replied, and the message contains any keyword below. [VERIFY IN GHL] whether "contains phrase" matching is case-insensitive and accepts a list | 1) If tag `rl-emergency` was added in the last 10 min: skip to step 4. 2) Send M2 (the Spanish version if a Spanish keyword matched). 3) Turn the bot OFF for the contact and tag `rl-emergency`. 4) Send M4 to on-call and owner. 5) Wait 5 min. If no human has replied in the conversation, send M4 to backup. [VERIFY IN GHL] 6) Remove from all follow-up workflows |
 | `RL-Emergency` | Bot EMERGENCY action | Same as RL-EmergencyNet steps 3-6. It does **not** send M2 again, because the bot already sent it |
 | `RL-EmergencyFollowup` | Customer replied, and the contact has `rl-emergency` | Send M3 at most once per 10 min until a human replies. [VERIFY IN GHL] |
-| `RL-OptOut` | Bot OPT-OUT action, **and** GHL's native STOP handling | Set DND (SMS), tag `rl-optout`, bot OFF, and remove from all workflows. Send M14 only if GHL doesn't already send one. [VERIFY IN GHL] |
+| `RL-OptOut` | Bot OPT-OUT action, **and** GHL's native STOP handling | Set DND (SMS), tag `rl-optout`, bot OFF, and remove from all workflows, including reminders. Send M14 only if GHL doesn't already send one. If the contact has an upcoming appointment, alert the owner: "OPTED OUT with a booking on [slot]. Call them." (A customer replying "cancel" to a reminder may be opted out by the carrier.) [VERIFY IN GHL] |
+| `RL-Reminder` (BOOKING only) | Appointment booked through the bot | Wait until `{{reminder_timing}}`. If the appointment is still booked, the contact isn't on DND, it was booked more than 12h ahead, and it's outside quiet hours: send M22. Replies go to the bot, which hands reschedule or cancel requests to the office (M8 + M6d). [VERIFY IN GHL] appointment-based wait steps |
+| (phone setup) M21 greeting | Unanswered call reaches the GHL number | Plays M21. The missed-call trigger must still fire. [VERIFY IN GHL] custom greeting on the GHL number, and whether the trigger fires after a greeting or voicemail |
 | `RL-Handoff` | Bot HUMAN HANDOVER | Send M6d to owner. Bot OFF. Remove from follow-ups |
 | `RL-JobAlert` | Bot JOB COMPLETE | Send M6a (REQUEST) or M6b (BOOKING) to owner (+ email). If URGENT, after hours and `{{after_hours_service}}` = YES, also send to on-call. Tag `rl-job-request` or `rl-booked`. Move to the pipeline stage "New request" or "Booked". Remove from follow-ups |
 | `RL-JobUpdate` | Bot JOB UPDATE | Send "UPDATE from [phone]: [message]" to owner |
@@ -183,3 +187,6 @@ These are things we don't know about GHL's current product. Builder checks each 
 21. Whether demo texting to our own test phones needs a registered A2P number.
 22. How the bot handles MMS (photos, voice notes).
 23. Merge-tag names for contact and custom fields in workflow SMS.
+24. Custom voicemail greeting (M21) on the GHL number with conditional forwarding, and whether the missed-call trigger still fires after the greeting or a voicemail.
+25. Appointment-based wait steps for the M22 reminder, and whether the booking action can reschedule. (It stays off in v1 either way.)
+26. Whether native carrier or GHL opt-out handling catches a bare "cancel" reply to a reminder, and whether the workflow can still see the appointment so it can alert the owner.

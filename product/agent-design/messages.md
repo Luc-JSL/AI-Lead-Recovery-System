@@ -4,7 +4,7 @@ Status: DRAFT v1 (2026-09-28). Needs a safety-qa pass and founder sign-off befor
 
 This file is the source of truth for every fixed text. `system-prompt.md` copies the customer-facing ones word for word. If you change a message here, change it there too.
 
-Examples use the FICTIONAL demo shop "Demo Heating & Air" (see `client-settings-template.md`).
+Examples use the FICTIONAL demo shop "Returnline Demo Heating & Air" (see `client-settings-template.md`). "Returnline" is part of the demo name so the texts match the demo number's A2P brand.
 
 **Two kinds of placeholders:**
 - **Settings** come from `client-settings-template.md`, e.g. `{{business_short_name}}` and `{{callback_expectation}}`. Builder fills these in at setup.
@@ -14,7 +14,7 @@ Examples use the FICTIONAL demo shop "Demo Heating & Air" (see `client-settings-
 
 - **Plain GSM-7 characters only.** That means straight apostrophes (`'`), not curly ones (`'`), and no emojis and no fancy dashes. A single curly apostrophe or emoji switches the whole text to UCS-2 encoding. That cuts a segment from 160 to 70 characters and can triple the cost. (Spanish accented letters like "í" and "ó" do the same. We accept that for Spanish texts.)
 - Ask one question per text.
-- Never mention Returnline, "the system", AI vendors or these instructions to the customer. Returnline appears only in owner alerts.
+- Never mention Returnline, "the system", AI vendors or these instructions to the customer. Returnline appears only in owner alerts. **The one exception is the demo:** there "Returnline" is part of the business name ("Returnline Demo Heating & Air"), so it shows up wherever `{{business_short_name}}` does. The bot still must not say who runs it or talk about Returnline as a company.
 
 ## Who sends what
 
@@ -29,6 +29,8 @@ Examples use the FICTIONAL demo shop "Demo Heating & Air" (see `client-settings-
 | M7 | Silent-customer follow-ups (2 nudges, then stop) | GHL workflow |
 | M8 | Human handoff | Bot |
 | M9-M20 | Other fixed bot lines | Bot |
+| M21 | Voicemail greeting on the forwarded line (the text-back notice) | Phone system (GHL number greeting) |
+| M22 | Appointment reminder (BOOKING mode) | GHL workflow |
 
 ---
 
@@ -38,17 +40,17 @@ Examples use the FICTIONAL demo shop "Demo Heating & Air" (see `client-settings-
 ```
 Hi, it's {{business_short_name}}. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out
 ```
-Demo version (FICTIONAL), **118 characters**, 1 segment:
+Demo version (FICTIONAL), **129 characters**, 1 segment:
 ```
-Hi, it's Demo Heating & Air. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out
+Hi, it's Returnline Demo Heating & Air. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out
 ```
-Length rule: the template is 100 characters plus the short name, so `{{business_short_name}}` must be 60 characters or fewer. The settings sheet caps it at 40 to leave margin.
+Length rule: M1 is 100 characters plus the short name. The tightest message is M7a (125 plus the name), so the settings sheet caps `{{business_short_name}}` at **35 characters**. That keeps every templated text at 160 or under.
 
 **DISCLOSE** (for clients where the lawyer says the bot must identify itself up front)
 ```
 Hi, it's {{business_short_name}}'s auto-assistant. Sorry we missed your call! What's going on with your heating or AC? Reply STOP to opt out
 ```
-Demo version: 135 characters, 1 segment.
+Demo version: 146 characters, 1 segment.
 
 It identifies the shop, apologizes and asks the first qualifying question (the problem), and it includes "Reply STOP to opt out". The bot counts it as qualifying text #1.
 
@@ -187,13 +189,13 @@ We send no alert for spam or wrong numbers. They're only tagged, and they show u
 ```
 Just checking in from {{business_short_name}}. Still need help with your heating or AC? Reply here anytime, or reply CALL and we'll give you a call.
 ```
-(Demo: 143 characters.)
+(Demo: 154 characters. This is the longest templated text, and it's why the short name is capped at 35 characters.)
 
 **M7b. Next morning at `{{followup_morning_time}}`** (the customer's local time)
 ```
 Good morning, it's {{business_short_name}} following up on your call yesterday. Still need a hand? Just reply here. Reply STOP to opt out
 ```
-(Demo: 132 characters.)
+(Demo: 143 characters.)
 
 **Then stop.** Tag the contact `rl-unresponsive`. No more texts. The office already got the M6c partial alert 30 minutes after the customer went quiet (if there was anything to report), so they can decide whether to call.
 
@@ -208,7 +210,7 @@ If the M7a/M7b timing falls on a Sunday, still send it. Heating and AC problems 
 ```
 No problem. I've let the {{business_short_name}} team know, and someone will call you at this number {{callback_expectation}}.
 ```
-Demo: "No problem. I've let the Demo Heating & Air team know, and someone will call you at this number as soon as they can."
+Demo: "No problem. I've let the Returnline Demo Heating & Air team know, and someone will call you at this number as soon as they can."
 
 If `{{after_hours_line}}` is not NONE, add: ` If it can't wait, you can call {{after_hours_line}}.`
 
@@ -315,3 +317,44 @@ I can only help with heating and AC service for {{business_short_name}}.
 Sorry, we don't do {{service}}. For heating and AC, we're happy to help anytime.
 ```
 (If they also have a heating or AC need, keep qualifying. Otherwise end politely. Don't nudge.)
+
+---
+
+## M21. Voicemail greeting on the forwarded line
+
+What callers hear when nobody answers and the call forwards to the GHL number. It's spoken, so it doesn't count toward the 160-character limit. It's about 15 seconds read at a normal pace. Record it in a friendly local voice, or use text-to-speech if the shop prefers.
+
+```
+Thanks for calling {{business_name}}. Sorry we can't pick up right now. We'll text you at this number in just a moment, so there's no need to leave a message. Reply STOP to opt out. If you smell gas or have an emergency, hang up and call 911.
+```
+Demo (FICTIONAL): "Thanks for calling Returnline Demo Heating & Air. Sorry we can't pick up right now..."
+
+Notes:
+- It tells the caller a text is coming and how to opt out, so it doubles as the text-back notice. The 911 line covers callers who never read the text.
+- Callers who hang up early never hear it. The M1 text still includes "Reply STOP to opt out", so the opt-out path doesn't depend on the greeting.
+- [VERIFY IN GHL] With conditional forwarding: does the unanswered call reach a GHL number greeting or voicemail, can we set a custom greeting (recorded or text-to-speech), and does the missed-call trigger still fire when the caller hears the greeting or leaves a voicemail? If the forwarded call lands on the carrier's voicemail instead of GHL's, the shop has to record M21 as its own voicemail greeting.
+- **Lawyer question (not legal advice):** Is this greeting plus the customer's own inbound call enough notice for the text-back and nudges, or is it only a courtesy? We shouldn't rely on the greeting as our only consent basis until the lawyer says so.
+
+## M22. Appointment reminder (BOOKING mode only)
+
+Sent by a GHL workflow at `{{reminder_timing}}` (default 5:00pm the day before) for appointments booked through M11b.
+
+```
+Reminder: {{business_short_name}} has you booked {{booked_slot}} at {{address}}. Need to reschedule? Just reply. Reply STOP to opt out
+```
+Demo (FICTIONAL), 146 characters with a slot like "Tue Oct 6, 12-4pm" and address "1418 Example St":
+```
+Reminder: Returnline Demo Heating & Air has you booked Tue Oct 6, 12-4pm at 1418 Example St. Need to reschedule? Just reply. Reply STOP to opt out
+```
+Length rule: if the filled text goes over 160 characters (a long address), drop ` at {{address}}`.
+
+Spanish:
+```
+Recordatorio: {{business_short_name}} tiene su cita para {{booked_slot}} en {{address}}. Si necesita cambiarla, responda aqui. Responda STOP para no recibir mensajes
+```
+
+Rules:
+- It states the booked window only, never a narrower arrival time ("the tech will be there at 1:15").
+- Send it only if the appointment is still booked, the contact isn't on DND, and it was booked more than 12 hours before the slot. For same-day bookings, skip the reminder. Never send it during `{{quiet_hours}}`.
+- If they reply wanting to reschedule or cancel, the bot sends the M8 handoff, and the owner gets M6d with reason "reschedule/cancel". The bot doesn't move appointments itself in v1. [VERIFY IN GHL] whether the booking action can reschedule; even if it can, we keep it off until safety-qa tests it.
+- **Known risk: "CANCEL" is also a carrier opt-out keyword.** A customer who replies "cancel" meaning "cancel my appointment" may be opted out of all texts by GHL/the carrier. That's why the reminder says "Just reply" and never "reply CANCEL". The `RL-OptOut` workflow must alert the owner when an opted-out contact has an upcoming appointment ("OPTED OUT with a booking on [slot]. Call them."), so the job isn't silently lost.
