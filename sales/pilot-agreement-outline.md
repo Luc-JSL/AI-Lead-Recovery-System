@@ -33,13 +33,14 @@
 
 > **[LAWYER REVIEW]** Draft wording only. Do not use with a client until counsel has reviewed it.
 
-- **Promise:** "If we don't recover at least one real job in your first 30 days, that month is free."
+- **Promise:** "If we don't recover at least one real job in your first 30 paid days, that month is free."
 - **Definition of "a real job":** a booked appointment from a new-customer lead that came through the Returnline system.
   - "New customer" means someone who is not already in the shop's customer list. [LAWYER REVIEW: confirm how this is checked and who decides.]
   - "Came through the system" means the lead started as a missed call that Returnline texted back (or another channel Returnline handles for the shop) and is recorded in Returnline's log.
   - "Booked appointment" means the shop's office confirmed a date/time with that customer. Because the office confirms appointments in phase 1, the shop agrees to tell Returnline when a lead it sent becomes a booked appointment. [LAWYER REVIEW: what happens if the shop doesn't report bookings.]
 - **Points counsel needs to settle:**
-  - When the 30 days start: day 1 of the free trial, or day 1 of paid service. [LAWYER REVIEW]
+  - **Decided (founder, 2026-09-28):** the 30 days start on the first day of paid service, after the free trial ends. [LAWYER REVIEW: confirm wording]
+  - The shop confirms each week which leads became booked jobs, since in phase 1 the office (not Returnline) confirms appointments. [LAWYER REVIEW]
   - How "that month is free" works: no charge, a refund, or a credit toward the next month. [LAWYER REVIEW]
   - Whether the guarantee applies only to the first paid month or can repeat. [LAWYER REVIEW]
   - Whether a free month changes the start or end date of a founding client's 12-month $397 lock. [LAWYER REVIEW]

@@ -35,7 +35,7 @@ It starts by counting your missed calls from your phone's call log, so you know 
 | Launch rate (clients 4-10) | $497/month, no setup fee |
 | Contract | Month to month, no long contract |
 
-**Our guarantee:** If we don't recover at least one real job in your first 30 days, that month is free.
+**Our guarantee:** If we don't recover at least one real job in your first 30 paid days, that month is free. The 2-week trial before it is free too.
 
 *A "real job" means a booked appointment from a new-customer lead that came through our system.*
 

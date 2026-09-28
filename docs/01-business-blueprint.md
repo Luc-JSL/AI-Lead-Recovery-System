@@ -164,6 +164,6 @@ Past 25 clients, one founder can't serve everyone alone. That's when we hire (SO
 **2026-09-28 (pricing locked by founder)**
 - **Founding clients (first 3):** $397/mo locked for 12 months, no setup fee, in exchange for a case study and testimonial.
 - **Clients 4-10:** $497/mo, no setup fee (launch offer). **Later:** $497/mo + $297 setup, once we have case studies.
-- **Guarantee:** if we don't recover at least one real job (a booked appointment from a new-customer lead that came through the system) in the first 30 days, that month is free.
+- **Guarantee:** if we don't recover at least one real job (a booked appointment from a new-customer lead that came through the system) in the first 30 days of paid service (the clock starts after the free trial ends), that month is free. The shop confirms booked jobs weekly.
 - **Phase 1 scheduling is "request mode":** the AI collects the job details and a preferred window, and the office confirms the time. Live calendar booking comes later, for shops whose calendars are kept up to date.
 - **Milestone ladder recalculated** (3 founding clients at $397, the rest at $497; after tool costs and 25% for taxes): quit the job = **7 clients** (~$2,150/mo take-home), Z06 fund = 12 (~$3,950), full-time agency = 25 (~$8,600), hire a team = 50 (~$17,500).

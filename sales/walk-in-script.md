@@ -58,7 +58,7 @@ Let them answer. Most say "nobody" or "voicemail" or "we call back later." That'
 
 Don't ask "do you want to buy this." Ask for the small yes.
 
-*"Can we start the free trial this week? First step is just counting your missed calls from your phone's call log, so you see the real number for yourself. No cost, no commitment. If you like what you see after two weeks, we keep going month to month. And if we don't recover at least one real job in your first 30 days, that month is free. If it's not for you, no hard feelings."*
+*"Can we start the free trial this week? First step is just counting your missed calls from your phone's call log, so you see the real number for yourself. No cost, no commitment. If you like what you see after two weeks, we keep going month to month. And if we don't recover at least one real job in your first paid month, that month is free. If it's not for you, no hard feelings."*
 
 ("A real job" means a booked appointment from a new-customer lead that came through our system. If they ask, tell them exactly that.)
 
@@ -90,7 +90,7 @@ Write the shop name, contact name, and best time down right after you leave the 
 *"I get that. The AI doesn't diagnose anything or make anything up. It just asks what's wrong, how urgent it is, and what time works, then your office confirms the appointment. You stay in charge of your schedule. We just make sure nobody slips through the cracks. Anything that sounds like an emergency, like a gas smell or CO alarm, gets told to call 911 or the gas company right away, and a real person gets paged. And the customer can always say 'talk to a human.' You'd see every conversation during the trial."*
 
 **"How much?"**
-*"The regular price is $497 a month, and right now there's no setup fee. But I'm taking my first three shops at $397 a month, locked in for 12 months, no setup fee, in exchange for a case study and a testimonial. Month to month, no long contract. And if we don't recover at least one real job in your first 30 days, that month is free. Plus you get the two-week trial free before any of that starts."*
+*"The regular price is $497 a month, and right now there's no setup fee. But I'm taking my first three shops at $397 a month, locked in for 12 months, no setup fee, in exchange for a case study and a testimonial. Month to month, no long contract. Plus you get the two-week trial free first. And if we don't recover at least one real job in your first paid month, that month is free."*
 
 (Only offer the $397 founding rate while founding spots are actually open. Check `pipeline.md` before the visit. Once 3 founding clients have signed, quote $497/mo with no setup fee.)
 
