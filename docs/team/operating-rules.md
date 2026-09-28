@@ -37,3 +37,6 @@ Agents don't remember past sessions or feel consequences, so discipline changes 
 3. **Strike 3:** the agent is replaced. The role is redesigned, its model or tools change, or the work moves to another agent.
 
 Every strike goes into `performance-log.md`, and the founder can read it at any time.
+
+## Merging
+The founder authorized (2026-09-28) automatic merges into `main`. Once the CEO has reviewed a change, it goes through a pull request and is merged without asking again. Anything involving money, legal terms or client-facing messages still gets founder sign-off before it goes live.
