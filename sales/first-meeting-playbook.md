@@ -37,6 +37,9 @@ The one thing that can't be switched off: if a customer says they smell gas or t
 
 Write down their choice as an intake detail.
 
+## Every other question
+See `owner-questions.md`: every question an owner is likely to ask, with an answer ready to say.
+
 ## If they say "not now"
 "Totally fair. Can I check back in two weeks?" Log it in the pipeline with the date.
 
