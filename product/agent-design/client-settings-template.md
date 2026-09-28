@@ -78,8 +78,15 @@ We fill this in at the Day 0 intake (see `docs/02-sales-and-delivery.md`, Part 2
 | Owner alert phone | `{{owner_alert_phone}}` | Gets job alerts, emergency alerts and landline fallbacks | Yes | none |
 | Backup alert phone | `{{backup_alert_phone}}` | Gets emergency alerts if on-call hasn't responded within 5 minutes | Strongly recommended | owner |
 | Office alert email | `{{office_alert_email}}` | Copy of every job alert | No | none |
+| Job alert recipient | `{{job_alert_to}}` | Who gets normal (non-emergency) job alerts: `OWNER`, `OFFICE` (office manager or dispatcher phone) or `BOTH`. The owner doesn't have to get texts | Yes | `OWNER` |
+| Office alert phone | `{{office_alert_phone}}` | The office manager's or dispatcher's phone, used when `job_alert_to` is `OFFICE` or `BOTH` | If OFFICE/BOTH | none |
+| Job alert channel | `{{job_alert_channel}}` | `TEXT`, `EMAIL`, `APP` (GHL mobile app push, where staff can also reply) or `DIGEST` | Yes | `TEXT` |
+| Quiet hours for job alerts | `{{alert_quiet_hours}}` | Non-urgent job alerts are held during these hours and sent as one morning summary. Example: 8pm-7am | No | none |
+| Morning summary time | `{{digest_time}}` | When the held alerts (or the DIGEST channel) go out. Example: 7:00am | If quiet hours or DIGEST | 7:00am |
 | Public after-hours line | `{{after_hours_line}}` | A number the shop is happy for customers to call after hours, or `NONE` | Yes | `NONE` |
 | Does the shop do after-hours service? | `{{after_hours_service}}` | `YES` or `NO`. It changes only how urgent leads are routed (the on-call person gets them at night). It never changes what the customer is told | Yes | `NO` |
+
+**Alert routing rule (LOCKED):** quiet hours, email and digest apply ONLY to normal job alerts. Emergency alerts (M4) and URGENT or AT-RISK PERSON leads always go straight to the on-call phone as a text, at any hour. A shop that wants no night alerts at all must name an on-call person anyway, or it can't be a client. [VERIFY IN GHL: holding alerts until a set time with a wait step, and app push notifications to specific users.]
 
 ## G. Messaging and compliance
 

@@ -23,9 +23,19 @@ Once the GoHighLevel demo is built, you'll also have a live version: they call a
 | 8-10 | **Ask** | "Want to try it free for two weeks?" |
 
 ## If they say yes
-1. "Great. Can I grab a few details so I can set it up?" Get: business hours, service area (towns or ZIP codes), emergency or on-call contact, how jobs get booked now, whether prices can be quoted (default: no), and the owner's cell for alerts.
+1. "Great. Can I grab a few details so I can set it up?" Get: business hours, service area (towns or ZIP codes), emergency or on-call contact, how jobs get booked now, whether prices can be quoted (default: no), and **who gets the job alerts, and how** (owner or office, text, email, app or a morning summary), plus the on-call phone for emergencies.
 2. Book the setup call: "I'll text you when it's ready to switch on. It takes about 5 minutes on your phone."
 3. Text Claude right away. The team starts the setup (texting registration, the AI settings, safety testing).
+
+## If they say "I don't want these texts on my phone"
+"No problem, you pick where they go:
+- your office manager's or dispatcher's phone instead of yours
+- email, or an app where your office can see and answer the conversations
+- or nothing at night, just one summary at 7am of everything that came in overnight.
+
+The one thing that can't be switched off: if a customer says they smell gas or their CO alarm is going off, the on-call person gets an alert right away. That can be a tech instead of you."
+
+Write down their choice as an intake detail.
 
 ## If they say "not now"
 "Totally fair. Can I check back in two weeks?" Log it in the pipeline with the date.
