@@ -102,3 +102,26 @@ Before go-live with every client, record a **baseline**: missed calls per week, 
 - Technical comfort (never coded / some / comfortable)?
 - Do you personally know any HVAC owners? Which city/region?
 - Goal: side income, agency, or venture-scale SaaS?
+
+---
+
+## 6. Decisions log
+
+**2026-09-28**
+- **Goal:** a profitable agency that replaces the founder's job income so they can get through school. Not venture-scale SaaS.
+- **Base:** Conway, AR. First pilots in Central Arkansas (Conway, Little Rock metro). After 1-2 case studies, sell remotely into hot-summer states (TX, OK, TN, LA, MS, AZ, FL), then nationwide. Stay HVAC-only until that's working.
+- **Time:** 15 hrs/week (about 2 hrs on weeknights plus 5 on Saturday). At least half goes to sales.
+- **Tech:** Claude owns the code. First 1-3 clients run on an off-the-shelf platform so revenue starts in weeks. Our own system gets built alongside and replaces it once it's proven.
+- **Lean budget:** about $150-250/mo, plus about $100-300 one-time (see section 7).
+
+## 7. Budget (estimates; verify prices before buying)
+
+| Item | Cost | Why |
+|---|---|---|
+| Arkansas LLC | ~$45 filing + ~$150/yr franchise tax | Protects personal assets; makes clients take us seriously |
+| Domain + Google Workspace email | ~$12/yr + ~$7/mo | A professional email address for outreach |
+| GoHighLevel (starter plan) | ~$97/mo | Missed-call text-back and CRM on day one; dropped later |
+| Twilio number(s) + SMS + carrier registration | a few $/mo + small one-time fees | The texting itself (passed through to clients) |
+| Claude API | ~$5-30/mo early on | The AI conversations |
+| Hosting / database (our build) | $0-25/mo | Free tiers cover us at first |
+| Cold email tool (after local pilots) | ~$40/mo | Nationwide outreach |
