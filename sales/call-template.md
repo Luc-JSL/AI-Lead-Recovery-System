@@ -15,7 +15,11 @@ One script that works for every shop. Swap in the **[BRACKETS]**, and where ther
 > "Hi, this is Jordan with Returnline. I'm local here in [Conway]. Is [OWNER] around?"
 
 - **Owner unknown:** "Hi, this is Jordan, I'm local. Who's the owner there? … Great, is [OWNER] in?"
-- **"What's it about?"** "It's about the calls that come in after hours. I've got a quick question for [him/her]. It'll take 2 minutes."
+- **"What's it about?"** Be straight and specific. Vague answers ("a quick question") sound like spam, and HVAC offices get tons of calls from people selling ads and Google listings:
+  > "Honestly, I'm a local guy. I help HVAC shops catch the calls they miss after hours. I called your line [WHEN] and it went to voicemail, and I wanted to ask [OWNER] how he handles those. I'm not selling ads or Google listings. Is he the right person for that, or is it you?"
+- **"Is this a sales call?"** "Yeah, it is, I won't pretend it's not. It's short, though. If it's not a fit, he can tell me no and I'm gone."
+- **"He's not interested" / "We're good":** "Totally fair. Can I ask you one thing, since you're probably the one who deals with it: when calls come in after hours, what happens with them in the morning?" *(Often the front desk feels the problem most. Let them talk.)*
+- **"Send an email":** "Happy to. What's the best address, and should I put your name on it so he knows it came through you?"
 - **Owner's out:** "No problem. When's the best time to catch [him/her]? And is there a better number?" *(Write it down.)*
 - **They offer to help:** "Actually, maybe you're the right person. Who handles the phones when everyone's busy?" → go to Step 3 with them.
 
