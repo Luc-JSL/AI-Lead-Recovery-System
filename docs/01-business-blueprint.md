@@ -167,3 +167,10 @@ Past 25 clients, one founder can't serve everyone alone. That's when we hire (SO
 - **Guarantee:** if we don't recover at least one real job (a booked appointment from a new-customer lead that came through the system) in the first 30 days of paid service (the clock starts after the free trial ends), that month is free. The shop confirms booked jobs weekly.
 - **Phase 1 scheduling is "request mode":** the AI collects the job details and a preferred window, and the office confirms the time. Live calendar booking comes later, for shops whose calendars are kept up to date.
 - **Milestone ladder recalculated** (3 founding clients at $397, the rest at $497; after tool costs and 25% for taxes): quit the job = **7 clients** (~$2,150/mo take-home), Z06 fund = 12 (~$3,950), full-time agency = 25 (~$8,600), hire a team = 50 (~$17,500).
+
+**2026-09-28 (master operating system adopted)**
+- Founder's standing brief saved as `CLAUDE.md`. Every session loads it.
+- **Product name:** "AI Revenue Recovery System" by Returnline.
+- **Phase 1 is now a working sales demo in GoHighLevel** (no n8n, no custom code). It runs in parallel with prospecting; prospecting doesn't wait for the demo.
+- **Demo vs. production:** the demo uses booking mode on a demo calendar to show the full flow. Real clients default to office-confirmed request mode until their calendar is proven reliable.
+- Added `docs/finance.md` (P&L and tool justification), `docs/skills-registry.md`, the `daily-brief` skill, and funnel plus profit columns in the metrics.
