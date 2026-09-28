@@ -174,3 +174,6 @@ Past 25 clients, one founder can't serve everyone alone. That's when we hire (SO
 - **Phase 1 is now a working sales demo in GoHighLevel** (no n8n, no custom code). It runs in parallel with prospecting; prospecting doesn't wait for the demo.
 - **Demo vs. production:** the demo uses booking mode on a demo calendar to show the full flow. Real clients default to office-confirmed request mode until their calendar is proven reliable.
 - Added `docs/finance.md` (P&L and tool justification), `docs/skills-registry.md`, the `daily-brief` skill, and funnel plus profit columns in the metrics.
+
+**2026-09-28 (channels)**
+- The founder asked for cold calling. Main channels are now: **(1) daytime calls to book a 10-minute visit, (2) audit-first email, (3) warm drop-offs**, all using the after-hours test result as the hook. Cold walk-ins become optional drop-offs, not pitches. Network asks (family and friends who know shop owners) run alongside.

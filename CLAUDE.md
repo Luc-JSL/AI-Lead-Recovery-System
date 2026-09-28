@@ -53,3 +53,5 @@ New top-level folders (`sops/`, `integrations/`, `n8n/`, `mcp/`, `tests/`) get c
 
 ## Git
 Work on the session branch. Merge reviewed changes to `main` through a pull request without asking (standing approval). Anything about money, legal terms or customer-facing messages needs Jordan's sign-off before it goes live.
+
+**No Claude attribution anywhere** (founder's instruction, 2026-09-28): no "Generated with Claude Code" lines, session links or `Co-Authored-By`/`Claude-Session` trailers in commit messages, PR titles, PR descriptions or comments.
