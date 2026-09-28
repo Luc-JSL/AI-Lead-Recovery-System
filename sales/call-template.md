@@ -49,10 +49,23 @@ Then dig once:
 - "What's one of those jobs usually worth?"
 - "Is it worse in summer?"
 
-## Step 4: small ask
+## Step 4: what we do (the solution, about 15 seconds)
+Say it plainly, in 3 steps:
+> "Here's what I do. When a call goes unanswered, your phone still rings first, same number. If nobody picks up, the caller gets a text from [SHOP] within a minute: 'Sorry we missed your call, what's going on with your heating or AC?' It gets their problem, address, how urgent it is, and when they're free. Then that job request lands on your phone, or your office's, and you confirm the time."
+
+## Step 5: why it matters (tie it to THEIR answer)
+Use what they told you in Step 3:
+- **A.** "So instead of that caller trying the next shop while they wait, they're already talking to you. You keep the job."
+- **B.** "You said [THEIR ANSWER]. If even one of those turns into a repair, or a new system, that's real money you're currently handing to whoever answers first."
+- **C.** "And you don't have to hire anyone or answer at night. It just catches the people who'd otherwise slip through."
+
+*(Never make up numbers. If they gave you a job value, use theirs.)*
+
+## Step 6: small ask
 Pick one:
-- **A. Nearby (Conway):** "Might be worth 10 minutes to show you what I do about that. Could I swing by [DAY 1] or [DAY 2]?"
+- **A. Nearby (Conway):** "Might be worth 10 minutes to show you on my phone. Could I swing by [DAY 1] or [DAY 2]?"
 - **B. Far (Little Rock area):** "Might be worth a quick 10-minute call to show you. Does [DAY 1] or [DAY 2] work?"
+- **Low-pressure add-on:** "It's free for two weeks, so you see it work on your own calls before you decide anything."
 
 **If yes:** "Perfect. What's the best number to text you a reminder?" Then text Claude right away.
 
