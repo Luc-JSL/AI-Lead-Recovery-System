@@ -1,0 +1,304 @@
+<title>Returnline HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f3f5f7; --panel:#ffffff; --ink:#15212e; --muted:#5b6b7b; --line:#d9e0e7;
+  --copper:#b8672f; --copper-soft:#f6e6da; --steel:#2f5d7c; --steel-soft:#e1ebf2;
+  --ok:#2e7d4f; --ok-soft:#dff1e6; --warn:#a86a00; --warn-soft:#fbefd4; --bad:#b3372c; --bad-soft:#f8e0dd;
+  --track:#e6ebf0;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f161d; --panel:#16202a; --ink:#e6edf3; --muted:#93a4b5; --line:#263442;
+    --copper:#e08a4f; --copper-soft:#3a261a; --steel:#7fb2d6; --steel-soft:#1b2c3a;
+    --ok:#5cc28a; --ok-soft:#173226; --warn:#e3a943; --warn-soft:#352812; --bad:#ec7a6f; --bad-soft:#3a1d1a;
+    --track:#223040; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f161d; --panel:#16202a; --ink:#e6edf3; --muted:#93a4b5; --line:#263442;
+  --copper:#e08a4f; --copper-soft:#3a261a; --steel:#7fb2d6; --steel-soft:#1b2c3a;
+  --ok:#5cc28a; --ok-soft:#173226; --warn:#e3a943; --warn-soft:#352812; --bad:#ec7a6f; --bad-soft:#3a1d1a;
+  --track:#223040; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:.01em;margin:0;text-wrap:balance}
+h2{font-size:1.25rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:3px solid var(--copper);padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{flex:none}
+.brand h1{font-size:2.3rem;line-height:1}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel);font-size:.8rem;white-space:nowrap}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.live-dot.on{background:var(--ok)}
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.gauge{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.gauge .label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.gauge .value{font-family:var(--display);font-size:2.2rem;font-weight:600;line-height:1}
+.gauge .value small{font-size:1rem;color:var(--muted);font-weight:500;margin-left:4px}
+.bar{height:10px;background:var(--track);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--copper);border-radius:6px;transition:width .6s ease}
+.gauge.steel .bar i{background:var(--steel)}
+.gauge .foot{font-size:.8rem;color:var(--muted)}
+.cols{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+section{display:flex;flex-direction:column;gap:12px}
+.crew{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;border-top:4px solid var(--line)}
+.card.s-working{border-top-color:var(--copper)}
+.card.s-review{border-top-color:var(--steel)}
+.card.s-blocked{border-top-color:var(--bad)}
+.card.s-benched{opacity:.72}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card h3{font-size:1.3rem}
+.card .role{font-size:.82rem;color:var(--muted);margin-top:-6px}
+.card .task{font-size:.9rem;min-height:2.6em}
+.card .foot{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--muted);gap:8px;flex-wrap:wrap}
+.pill{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.p-working{background:var(--copper-soft);color:var(--copper)}
+.p-review{background:var(--steel-soft);color:var(--steel)}
+.p-idle{background:var(--track);color:var(--muted)}
+.p-blocked{background:var(--bad-soft);color:var(--bad)}
+.p-benched{background:var(--track);color:var(--muted)}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-queued{background:var(--track);color:var(--muted)}
+.p-rejected{background:var(--bad-soft);color:var(--bad)}
+.p-in_progress{background:var(--copper-soft);color:var(--copper)}
+.p-in_review{background:var(--steel-soft);color:var(--steel)}
+.strikes{display:inline-flex;gap:3px;align-items:center}
+.strikes b{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted)}
+.strikes b.hit{background:var(--bad);border-color:var(--bad)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:4px 14px}
+.table-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.88rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.feed{list-style:none;margin:0;padding:0}
+.feed li{padding:10px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:.88rem}
+.feed li:last-child{border-bottom:none}
+.feed time{font-family:var(--mono);font-size:.75rem;color:var(--muted);grid-column:1/-1}
+.feed .who{font-weight:600}
+.prio{list-style:none;margin:0;padding:0;counter-reset:p}
+.prio li{counter-increment:p;display:grid;grid-template-columns:28px 1fr;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.prio li:last-child{border-bottom:none}
+.prio li::before{content:counter(p);font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--copper);line-height:1.1}
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+@media (max-width:620px){.week{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.day{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px;font-size:.78rem;display:flex;flex-direction:column;gap:4px}
+.day b{font-family:var(--display);font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.day.today{border-color:var(--copper);box-shadow:0 0 0 1px var(--copper)}
+.slot{border-radius:4px;padding:2px 6px}
+.slot.sell{background:var(--copper-soft);color:var(--copper)}
+.slot.work{background:var(--track);color:var(--muted)}
+.slot.ops{background:var(--steel-soft);color:var(--steel)}
+.empty{color:var(--muted);font-size:.9rem;padding:12px 0}
+.notice{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 12px;font-size:.88rem}
+@media (prefers-reduced-motion: reduce){.bar i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="19" fill="none" stroke="var(--line)" stroke-width="5"/>
+        <path d="M22 3 A19 19 0 1 1 5.5 31.5" fill="none" stroke="var(--copper)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M5.5 31.5 l-1.5 -8 l7.5 3.2 z" fill="var(--copper)"/>
+      </svg>
+      <div>
+        <h1>Returnline HQ</h1>
+        <p>Every missed call gets a second chance. This is what the team is doing right now.</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span class="chip"><span class="live-dot" id="liveDot"></span><span id="liveText">Connecting…</span></span>
+      <span class="chip" id="phaseChip">Phase —</span>
+      <span class="chip mono" id="updatedChip">Updated —</span>
+    </div>
+  </header>
+
+  <div class="notice" id="offline" hidden>Live data isn't available in this view. Open this page in claude.ai to see the team's current status.</div>
+
+  <div class="gauges" aria-label="Goals">
+    <div class="gauge">
+      <span class="label">Take-home vs. quit goal</span>
+      <span class="value mono" id="gTake">$0<small>/ $2,000 mo</small></span>
+      <div class="bar"><i id="bTake" style="width:0%"></i></div>
+      <span class="foot" id="fTake">Goal held 3 months: 0 of 3</span>
+    </div>
+    <div class="gauge">
+      <span class="label">Paying clients</span>
+      <span class="value mono" id="gClients">0<small>/ 6</small></span>
+      <div class="bar"><i id="bClients" style="width:0%"></i></div>
+      <span class="foot" id="fClients">MRR $0 · pilots running 0</span>
+    </div>
+    <div class="gauge steel">
+      <span class="label">Z06 fund</span>
+      <span class="value mono" id="gCar">$0<small>/ $15,000 down</small></span>
+      <div class="bar"><i id="bCar" style="width:0%"></i></div>
+      <span class="foot" id="fCar">2018/2019 Corvette Z06 · before age 22</span>
+    </div>
+    <div class="gauge steel">
+      <span class="label">This week's outreach</span>
+      <span class="value mono" id="gOut">0<small>/ 10 shops</small></span>
+      <div class="bar"><i id="bOut" style="width:0%"></i></div>
+      <span class="foot" id="fOut">Conversations 0 · pilot yeses 0</span>
+    </div>
+  </div>
+
+  <div class="cols">
+    <section aria-labelledby="crewH">
+      <h2 id="crewH">The crew</h2>
+      <div class="crew" id="crew"><p class="empty">Loading the team…</p></div>
+
+      <h2>Work orders</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>WO</th><th>Task</th><th>Assigned</th><th>Status</th><th>Due</th></tr></thead>
+          <tbody id="tasks"><tr><td colspan="5" class="empty">Loading work orders…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="prioH">
+      <h2 id="prioH">This week's top 3</h2>
+      <div class="panel"><ol class="prio" id="prio"><li>Loading…</li></ol></div>
+
+      <h2>Activity</h2>
+      <div class="panel"><ul class="feed" id="feed"><li><span class="empty">Loading…</span></li></ul></div>
+    </section>
+  </div>
+
+  <section aria-labelledby="weekH">
+    <h2 id="weekH">Jordan's week (Central time)</h2>
+    <div class="week" id="week"></div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var WEEK=[
+    {d:"Mon",s:[["sell","Walk-ins 1:00–4:00"],["ops","Test calls 7–8pm"]]},
+    {d:"Tue",s:[["ops","Follow-ups 1:00–4:00"],["work","Job 4–11pm"]]},
+    {d:"Wed",s:[["sell","Walk-ins 12:15–2:30"],["work","Lab 3pm"]]},
+    {d:"Thu",s:[["ops","Client check-ins 1:00–4:00"],["work","Job 4–11pm"]]},
+    {d:"Fri",s:[["sell","Walk-ins 12:15–3:30"],["work","Job 4–11pm"]]},
+    {d:"Sat",s:[["work","Job 10–5"],["ops","Rest"]]},
+    {d:"Sun",s:[["work","Job 10–5"],["ops","Weekly review 6:47pm"]]}
+  ];
+  var LABEL={working:"Working",review:"In review",idle:"Idle",blocked:"Blocked",benched:"Bench",
+    queued:"Queued",in_progress:"In progress",in_review:"In review",done:"Done",rejected:"Rejected"};
+  function $(id){return document.getElementById(id)}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function money(n){return "$"+Math.round(Number(n)||0).toLocaleString("en-US")}
+  function pct(a,b){b=Number(b)||0;return b>0?Math.max(0,Math.min(100,(Number(a)||0)/b*100)):0}
+  function when(iso){if(!iso)return "";var t=new Date(iso);if(isNaN(t))return String(iso);
+    return t.toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})}
+  function small(e,t){var s=el("small",null,t);e.appendChild(s)}
+
+  function renderWeek(){
+    var w=$("week");w.textContent="";
+    var today=(new Date().getDay()+6)%7;
+    WEEK.forEach(function(x,i){
+      var d=el("div","day"+(i===today?" today":""));d.appendChild(el("b",null,x.d));
+      x.s.forEach(function(s){d.appendChild(el("span","slot "+s[0],s[1]))});
+      w.appendChild(d);
+    });
+  }
+  renderWeek();
+
+  function renderCompany(c){
+    c=c||{};
+    var goal=c.quitGoal||2000, take=c.takeHome||0;
+    $("gTake").textContent=money(take);small($("gTake"),"/ "+money(goal)+" mo");
+    $("bTake").style.width=pct(take,goal)+"%";
+    $("fTake").textContent="Goal held 3 months: "+(c.monthsAtGoal||0)+" of 3";
+    var tc=c.clientGoal||6;
+    $("gClients").textContent=String(c.clients||0);small($("gClients"),"/ "+tc);
+    $("bClients").style.width=pct(c.clients,tc)+"%";
+    $("fClients").textContent="MRR "+money(c.mrr)+" · pilots running "+(c.pilots||0);
+    var cg=c.carDownGoal||15000;
+    $("gCar").textContent=money(c.carFund);small($("gCar"),"/ "+money(cg)+" down");
+    $("bCar").style.width=pct(c.carFund,cg)+"%";
+    if(c.carNote)$("fCar").textContent=c.carNote;
+    var og=c.outreachGoal||10;
+    $("gOut").textContent=String(c.outreachThisWeek||0);small($("gOut"),"/ "+og+" shops");
+    $("bOut").style.width=pct(c.outreachThisWeek,og)+"%";
+    $("fOut").textContent="Conversations "+(c.conversationsThisWeek||0)+" · pilot yeses "+(c.pilotYesThisWeek||0);
+    $("phaseChip").textContent=c.phase||"Phase —";
+    $("updatedChip").textContent="Updated "+(when(c.updatedAt)||"—");
+    var p=$("prio");p.textContent="";
+    var list=Array.isArray(c.priorities)?c.priorities:[];
+    if(!list.length)p.appendChild(el("li",null,"Set at the next weekly review."));
+    list.slice(0,3).forEach(function(t){p.appendChild(el("li",null,String(t)))});
+  }
+
+  function renderCrew(docs){
+    var g=$("crew");g.textContent="";
+    if(!docs.length){g.appendChild(el("p","empty","No agents on the roster yet."));return}
+    docs.sort(function(a,b){return (a.order||99)-(b.order||99)});
+    docs.forEach(function(a){
+      var st=a.status||"idle";
+      var c=el("article","card s-"+st);
+      var r=el("div","row");r.appendChild(el("h3",null,a.name||"agent"));r.appendChild(el("span","pill p-"+st,LABEL[st]||st));
+      c.appendChild(r);c.appendChild(el("div","role",a.role||""));
+      c.appendChild(el("div","task",a.currentTask||"No assignment."));
+      var f=el("div","foot");f.appendChild(el("span","mono",(a.model||"")+(a.updatedAt?" · "+when(a.updatedAt):"")));
+      var s=el("span","strikes");s.title=(a.strikes||0)+" of 3 strikes";s.appendChild(el("span",null,"Strikes "));
+      for(var i=0;i<3;i++)s.appendChild(el("b",i<(a.strikes||0)?"hit":null));
+      f.appendChild(s);c.appendChild(f);g.appendChild(c);
+    });
+  }
+
+  function renderTasks(docs){
+    var tb=$("tasks");tb.textContent="";
+    if(!docs.length){var tr=el("tr");var td=el("td","empty","No work orders yet.");td.colSpan=5;tr.appendChild(td);tb.appendChild(tr);return}
+    docs.forEach(function(t){
+      var tr=el("tr");
+      tr.appendChild(el("td","mono",t.wo||""));
+      var td=el("td");td.appendChild(el("div",null,t.title||""));
+      if(t.result){var n=el("div",null,t.result);n.style.color="var(--muted)";n.style.fontSize=".8rem";td.appendChild(n)}
+      tr.appendChild(td);
+      tr.appendChild(el("td",null,t.agent||""));
+      var sd=el("td");sd.appendChild(el("span","pill p-"+(t.status||"queued"),LABEL[t.status]||t.status||"Queued"));tr.appendChild(sd);
+      tr.appendChild(el("td","mono",t.due||""));
+      tb.appendChild(tr);
+    });
+  }
+
+  function renderFeed(d){
+    var f=$("feed");f.textContent="";
+    var items=(d&&Array.isArray(d.items))?d.items.slice():[];
+    items.sort(function(a,b){return String(b.at).localeCompare(String(a.at))});
+    if(!items.length){f.appendChild(el("li",null,"Nothing yet."));return}
+    items.slice(0,25).forEach(function(it){
+      var li=el("li");li.appendChild(el("time",null,when(it.at)));
+      li.appendChild(el("span","who",it.who||""));li.appendChild(el("span",null,it.text||""));
+      f.appendChild(li);
+    });
+  }
+
+  function setLive(on,text){$("liveDot").className="live-dot"+(on?" on":"");$("liveText").textContent=text}
+
+  (window.claude&&window.claude.use?window.claude.use("db"):Promise.resolve(null)).then(function(db){
+    if(!db){setLive(false,"Offline");$("offline").hidden=false;
+      renderCrew([]);renderTasks([]);renderFeed(null);renderCompany(null);return}
+    setLive(true,"Live");
+    function err(){setLive(false,"Reconnect by reloading")}
+    db.doc("hq/company").onSnapshot(function(s){renderCompany(s.exists?s.data():null)},err);
+    db.collection("agents").onSnapshot(function(q){renderCrew(q.docs.map(function(d){return d.data()}))},err);
+    db.collection("tasks").orderBy("wo","desc").limit(40).onSnapshot(function(q){renderTasks(q.docs.map(function(d){return d.data()}))},err);
+    db.doc("hq/activity").onSnapshot(function(s){renderFeed(s.exists?s.data():null)},err);
+  });
+})();
+</script>

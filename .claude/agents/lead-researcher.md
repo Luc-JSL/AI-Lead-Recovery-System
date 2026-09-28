@@ -1,6 +1,6 @@
 ---
-name: prospect-researcher
-description: Builds and enriches lists of HVAC companies to target, with name, city, phone, website, hours, 24/7 claims, review count and owner name if public. Use when we need new prospects for a city or state.
+name: lead-researcher
+description: Lead researcher. Builds and enriches lists of HVAC companies to target, with name, city, phone, website, hours, 24/7 claims, review count and owner name if public. Use when we need new prospects for a city or state.
 tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch
 model: sonnet
 ---

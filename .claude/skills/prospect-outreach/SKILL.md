@@ -6,7 +6,7 @@ description: Creates a tailored outreach package (call script, walk-in opener, e
 
 1. Get the company name, city and any details the founder has (website, Google reviews, hours, whether calls went unanswered in our after-hours test).
 2. If web access works, look up their site and Google listing. Note their hours, whether they advertise 24/7 service, and their review count. Do not invent facts.
-3. Delegate the writing to the `sales-writer` agent with those facts. The package should contain:
+3. Delegate the writing to the `copywriter` agent with those facts. The package should contain:
    - a 30-second phone opener
    - a walk-in opener (for Central Arkansas shops)
    - a cold email of under 120 words

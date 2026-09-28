@@ -1,6 +1,6 @@
 ---
-name: sales-writer
-description: Writes sales material for our HVAC lead-recovery agency, including cold call and walk-in scripts, cold emails, follow-ups, one-pagers, pilot offers and case studies. Use for any customer-facing copy.
+name: copywriter
+description: Copywriter. Writes sales material for our HVAC lead-recovery agency, including cold call and walk-in scripts, cold emails, follow-ups, one-pagers, pilot offers and case studies. Use for any customer-facing copy.
 tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch
 model: opus
 ---
