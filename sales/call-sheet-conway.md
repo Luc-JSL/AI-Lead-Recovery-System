@@ -22,9 +22,12 @@ Use `cold-call-script.md` for the gatekeeper, objections and voicemail. These ar
 > I set up instant text-backs so those callers get a reply right away. Could I stop by for 10 minutes Wednesday or Friday?"
 
 ## 5. Top Notch Heating & Air · (501) 545-5410 · ask for Steven Long
-They already have a phone menu with a tech line and a text option, so they're a weaker fit. This call is mostly **discovery**. Don't push:
-> "...I called early this morning and heard your menu: tech line, message, or text. That's more than most shops have. I'm curious: when someone presses 3 and texts at night, who answers, and how fast?
-> *(If the answer is 'nobody until morning' → offer the 10 minutes. If it's 'a tech answers right away' → thank him and ask what his biggest front-office headache is.)*"
+They already text callers back, **but in the morning**. So don't pitch texting; they're sold on it. Pitch **speed and qualifying**, and be curious rather than salesy:
+> "Hi Steven, this is Jordan with Returnline. I'm local here in Conway. I called your line early this morning and noticed your system texts people back in the morning. You're already ahead of most shops on that.
+> Quick question: what do you use for those texts? … And when someone calls at 9pm with no AC, do you find some of them have already booked someone else by the time the morning text goes out?
+> *(If yes:)* What I do is text back within a minute, day or night, and ask the questions your office would (problem, address, how urgent, when they're free), so the job request is waiting when you wake up. Worth 10 minutes Wednesday or Friday to compare?"
+
+**If they say "we're happy with what we have":** "Makes sense. Mind if I check back in a couple of months?" Then move on. They're lower priority than the other four.
 
 ## After every call, text Claude
 `Shop · who you talked to · what they said · next step`
