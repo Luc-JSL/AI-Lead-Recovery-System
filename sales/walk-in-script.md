@@ -42,25 +42,27 @@ Let them answer. Most say "nobody" or "voicemail" or "we call back later." That'
 
 ## The 45-second pitch
 
-*"That's exactly what I help with. I'm [NAME] — I'm a student here in Conway, and I'm building this for shops around here.*
+*"That's exactly what I help with. I'm [NAME], a student here in Conway, and I'm building this for shops around here.*
 
-*Here's the problem: when a customer gets voicemail, a lot of them don't leave a message. They call the next shop. You've probably seen it happen.*
+*When a customer gets voicemail, a lot of them don't leave a message. They just call the next shop.*
 
-*What we do is simple — when your shop misses a call, our system texts that customer back in under a minute, asks what's going on, and gets them booked or flagged for your office. You don't lose the lead just because nobody could pick up.*
+*Here's what we do. When your shop misses a call, our system texts that customer back in under a minute, finds out what's going on and what time works for them, and sends that request to your office. Your office confirms the actual appointment. You stay in charge of your schedule. We just make sure nobody slips through the cracks.*
 
-*Before you'd pay anything, I want to show you it actually works. We run a free two-week pilot — first we count how many calls you're actually missing right now, then we turn the text-back on and show you what got caught. No cost, no contract."*
+*Before you pay anything, we do a free two-week trial. First we count your missed calls from your phone's call log, then we turn the text-back on and show you what got caught. No cost, no contract."*
 
 (Read that out loud once with a timer — trim to fit your own pace, but keep it under a minute.)
 
 ---
 
-## How to ask for the pilot
+## How to ask for the trial
 
 Don't ask "do you want to buy this." Ask for the small yes.
 
-*"Can I set up a quick baseline this week — just watching your call logs for a few days to see how many calls you're actually missing? No cost, no commitment, and you'll see the number for yourself. If you like what you see after the two weeks, we talk price. If not, no hard feelings."*
+*"Can we start the free trial this week? First step is just counting your missed calls from your phone's call log, so you see the real number for yourself. No cost, no commitment. If you like what you see after two weeks, we keep going month to month. And if we don't recover at least one real job in your first 30 days, that month is free. If it's not for you, no hard feelings."*
 
-If they say yes: get their best phone number, current call-forwarding setup, and a day/time to start the baseline.
+("A real job" means a booked appointment from a new-customer lead that came through our system. If they ask, tell them exactly that.)
+
+If they say yes: get their best phone number, access to their call log (or a screenshot/export of it), current call-forwarding setup, and a day/time to start.
 
 If they hesitate: *"Totally fair — take my info, and if you want to just count your missed calls on your own for a week, you'll probably be surprised. Call me when you are."*
 
@@ -82,16 +84,18 @@ Write the shop name, contact name, and best time down right after you leave the 
 ## Objection handling
 
 **"We answer all our calls."**
-*"That's great to hear — a lot of shops think that until they actually check the logs. The two-week baseline is free either way, so worst case you confirm you're already covered. Want me to run it anyway, just to see the number?"*
+*"That's great to hear. A lot of shops think that until they actually check the call log. The count is free either way, so worst case you confirm you're already covered. Want me to pull the number anyway, just to see?"*
 
 **"I don't trust AI texting my customers."**
-*"I get that. The AI doesn't diagnose anything or make anything up — it just asks what's wrong, how urgent, and gets a good time to schedule. Anything that sounds like an emergency — gas smell, CO alarm — it tells them to call 911 or the gas company immediately and pages a real person. And there's always a way for the customer to say 'talk to a human.' You'd see every conversation before we ever go further than the pilot."*
+*"I get that. The AI doesn't diagnose anything or make anything up. It just asks what's wrong, how urgent it is, and what time works, then your office confirms the appointment. You stay in charge of your schedule. We just make sure nobody slips through the cracks. Anything that sounds like an emergency, like a gas smell or CO alarm, gets told to call 911 or the gas company right away, and a real person gets paged. And the customer can always say 'talk to a human.' You'd see every conversation during the trial."*
 
 **"How much?"**
-*"After the free two-week pilot, it's $497 a month plus a $497 setup fee. But since you'd be one of my first few clients, I'm locking in $397 a month for a full year if we work together — in exchange for letting me use your results as a case study. No long contract, month to month."*
+*"The regular price is $497 a month, and right now there's no setup fee. But I'm taking my first three shops at $397 a month, locked in for 12 months, no setup fee, in exchange for a case study and a testimonial. Month to month, no long contract. And if we don't recover at least one real job in your first 30 days, that month is free. Plus you get the two-week trial free before any of that starts."*
+
+(Only offer the $397 founding rate while founding spots are actually open. Check `pipeline.md` before the visit. Once 3 founding clients have signed, quote $497/mo with no setup fee.)
 
 **"We tried an answering service before."**
-*"Yeah, a lot of those are slow or just take a message and someone calls back hours later. This replies by text in under a minute, and every conversation is qualifying the job — not just taking a name and number. And you don't pay anything until after the pilot, so there's no risk trying it."*
+*"Yeah, a lot of those are slow or just take a message and someone calls back hours later. This replies by text in under a minute and finds out what the job is, not just a name and number. And you don't pay anything during the two-week trial, so there's no risk trying it."*
 
 **"I'm too busy for this right now."**
 *"Totally understand — this doesn't take any of your time to set up beyond a few minutes. I can leave my card and the one-pager, and you can think it over. Can I check back in with you [day] or [day]?"*
