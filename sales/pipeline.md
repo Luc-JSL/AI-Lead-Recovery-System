@@ -2,11 +2,11 @@
 
 | Company | City | Status | Next step | Date |
 |---|---|---|---|---|
-| Mathis Heating & Cooling | Conway, AR | researched | Walk-in visit | 2026-09-28 |
-| Freyaldenhoven Heating and Cooling | Conway, AR | researched | Walk-in visit | 2026-09-28 |
-| Stevenson Heat & Air | Conway, AR | researched | Walk-in visit | 2026-09-28 |
-| Top Notch Heating & Air LLC | Conway, AR | researched | Walk-in visit | 2026-09-28 |
-| Dewees HVAC | Conway, AR | researched | Walk-in visit | 2026-09-28 |
+| Mathis Heating & Cooling | Conway, AR | after-hours tested | Call Todd Mathis Mon 1pm (priority 1) | 2026-09-28 |
+| Freyaldenhoven Heating and Cooling | Conway, AR | after-hours tested | Call John Freyaldenhoven Mon (priority 2) | 2026-09-28 |
+| Stevenson Heat & Air | Conway, AR | after-hours tested | Call Todd Stevenson Mon (priority 3) | 2026-09-28 |
+| Top Notch Heating & Air LLC | Conway, AR | after-hours tested | Call Steven Long Mon (priority 5, weaker fit) | 2026-09-28 |
+| Dewees HVAC | Conway, AR | after-hours tested | Call Joshua Dewees Mon (priority 4) | 2026-09-28 |
 | 1 Call Heat & Air, Inc. | Little Rock, AR | researched | Walk-in visit | 2026-09-28 |
 | Bert Black – AC Heating Plumbing Electric | Little Rock, AR | researched | Walk-in visit | 2026-09-28 |
 | Seaton Heat N' Air & Electric | North Little Rock, AR | researched | Walk-in visit | 2026-09-28 |
