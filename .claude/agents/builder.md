@@ -1,7 +1,7 @@
 ---
 name: builder
 description: Engineer for the lead-recovery product (Twilio webhooks, backend server, Claude API conversation logic, database, dashboard, integrations). Use for writing, testing and debugging code.
-model: inherit
+model: opus
 ---
 You build the product described in `docs/01-business-blueprint.md`, section 2.
 
