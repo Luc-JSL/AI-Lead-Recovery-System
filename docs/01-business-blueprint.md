@@ -1,0 +1,104 @@
+# AI Lead Recovery for HVAC: Business Blueprint v1
+
+This is the company's working memory. Claude doesn't remember anything between sessions, so decisions, numbers and lessons get written down here.
+
+---
+
+## 1. What we sell (in one sentence)
+
+> "Every call your shop misses gets a text back in under 60 seconds. An AI qualifies the customer, books the job, and each month we show you exactly how many dollars we recovered."
+
+"Lead recovery" means catching revenue the HVAC company is already losing:
+
+| Leak | Why it happens | What we do |
+|---|---|---|
+| **Missed calls** (the biggest one) | Techs are on a roof, office is closed, it's a heat wave | Instant text-back, then an AI conversation, then a booking |
+| **Slow web-form response** | Nobody checks the inbox for hours | Reply in seconds, qualify, book |
+| **Unsold estimates** | A tech quoted a $12k system and nobody followed up | Automated follow-up sequence |
+| **Dormant past customers** | No maintenance reminders | Seasonal tune-up campaigns (**consent required**) |
+
+---
+
+## 2. Architecture (beginner version)
+
+Think of it as 6 boxes:
+
+```
+   CUSTOMER                                  HVAC COMPANY
+      |                                            ^
+      | calls / texts / fills form                 | "New booked job!" alert
+      v                                            |
+ +-------------+   webhook   +------------------+  |   +----------------------+
+ | 1. PHONE &  | ----------> | 2. OUR SERVER    | -+-> | 5. THEIR CALENDAR /  |
+ |  SMS LAYER  | <---------- | (the "brain      |      |  FIELD SERVICE APP   |
+ |  (Twilio)   |   replies   |   stem")         |      | (Google Cal, Jobber, |
+ +-------------+             +------------------+      |  Housecall Pro, etc) |
+                               |      ^     |          +----------------------+
+                     "what do  |      |     | save everything
+                     I say?"   v      |     v
+                          +-----------+  +--------------+     +---------------+
+                          | 3. AI     |  | 4. DATABASE  | --> | 6. DASHBOARD  |
+                          | (Claude   |  | (Postgres /  |     | "$ recovered  |
+                          |  API)     |  |  Supabase)   |     |  this month"  |
+                          +-----------+  +--------------+     +---------------+
+```
+
+1. **Phone & SMS layer (Twilio or Telnyx).** We give each HVAC client a number, or forward their "no answer" calls to us. When a call is missed, Twilio pings our server.
+2. **Our server.** A small web app (Python/FastAPI or Node) that receives those pings ("webhooks"), decides what happens next, and sends texts.
+3. **AI (Claude API).** It writes the conversation: asks what's wrong, how urgent it is, the address, and a good time. It follows strict rules and must never diagnose anything dangerous.
+4. **Database.** Every lead, message, status and booked job. This is our proof of value.
+5. **Calendar / field-service software.** Where the booked job lands so the office actually sees it.
+6. **Dashboard.** Missed calls, recovered leads, booked jobs, estimated revenue. **This is what keeps clients paying.**
+
+Also needed: **Stripe** (billing), **A2P 10DLC registration** (US carriers require it before you can text at scale; it takes days to weeks), error monitoring, backups.
+
+### Safety rules that are NOT optional
+- The words gas smell, carbon monoxide, CO alarm, burning smell or sparks trigger an immediate scripted reply: *leave the house, call 911 / the gas utility*. Then a human gets alerted. The AI never troubleshoots these.
+- The AI never quotes prices unless the client explicitly approves a price list.
+- Every conversation has a "talk to a human" escape hatch.
+- STOP / opt-out is honored instantly.
+
+---
+
+## 3. Pipelines
+
+### 3a. Lead pipeline (what happens to one customer)
+```
+Missed call -> Text-back (<60s) -> AI qualifies (issue, urgency, address, time)
+ -> Emergency? --yes--> safety script + page the on-call tech
+ -> Book appointment -> Notify office -> Reminder text -> Job done
+ -> Review request -> (later) maintenance reminder, with consent
+```
+
+### 3b. Build & business pipeline (what WE go through)
+
+| Phase | Goal | Exit criteria |
+|---|---|---|
+| **0. Validate** (wk 1-2) | Talk to 20+ HVAC owners/office managers | 3 shops agree to a pilot, ideally paid |
+| **1. Concierge MVP** (wk 2-5) | Missed-call text-back + AI qualifying + owner alert, for 1-3 shops | Real leads recovered, with numbers |
+| **2. Booking + follow-ups** | Calendar booking, estimate follow-up | Pilot converts to paid; a case study exists |
+| **3. Productize** | Multi-client, dashboard, Stripe, self-serve onboarding | 10 paying clients |
+| **4. Expand** | After-hours AI voice answering, FSM integrations | Retention above 90%/mo, clear upsell |
+| **5. Scale sales** | Repeatable outbound + referrals | Predictable CAC & payback |
+
+---
+
+## 4. Unit economics (ASSUMPTIONS, to be verified with real data)
+
+| Item | Rough guess |
+|---|---|
+| Price | $300-$800/mo + $500-$1,500 setup |
+| Our cost per client (SMS, number, AI, hosting) | ~$20-$100/mo depending on volume |
+| Gross margin | ~80%+ |
+| Value to client | One recovered system replacement ($8k-$15k+) pays for a year or more |
+
+Before go-live with every client, record a **baseline**: missed calls per week, from their phone logs. Without a baseline we can't prove ROI.
+
+---
+
+## 5. Open questions for the founder
+- Monthly budget for tools and ads?
+- Hours per week available?
+- Technical comfort (never coded / some / comfortable)?
+- Do you personally know any HVAC owners? Which city/region?
+- Goal: side income, agency, or venture-scale SaaS?
