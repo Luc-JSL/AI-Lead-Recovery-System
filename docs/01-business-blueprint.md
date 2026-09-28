@@ -125,3 +125,10 @@ Before go-live with every client, record a **baseline**: missed calls per week, 
 | Claude API | ~$5-30/mo early on | The AI conversations |
 | Hosting / database (our build) | $0-25/mo | Free tiers cover us at first |
 | Cold email tool (after local pilots) | ~$40/mo | Nationwide outreach |
+
+**2026-09-28 (update)**
+- **Founder capacity:** works 29-30 hrs/week, plus school 2-3 hrs/day. Business gets about 12-15 hrs/week.
+- **Sales channel:** walk-ins first (a founder strength). Cold calling is dropped as the main channel; the after-hours "no answer" test calls stay, since they need no pitch.
+- **Pricing:** standard $497/mo + $497 setup. The first 3 clients get a $397/mo founding rate locked for 12 months, in exchange for a case study and testimonial.
+- **Goals:** quit the job at $2,000/mo take-home held for 3 months (6 clients). Then build a Corvette fund (C6, price TBD) before age 22, which needs about 11-12 clients.
+- **Weekly review:** automated every Sunday at 6:47pm Central.
