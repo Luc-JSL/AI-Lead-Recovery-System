@@ -114,7 +114,7 @@ Three rules:
 > "The founding price is locked for 12 months. After that it's the regular price. I'll tell you well ahead of time, and you can cancel anytime." *(Be straight about this.)*
 
 **"Are there extra charges for texts?"**
-> **YOUR DECISION REQUIRED, see the bottom of this page.** Recommended answer: "Normal texting is included."
+> "No. Normal texting is included in the monthly price. No surprise charges."
 
 **"Can you do it cheaper?"**
 > "The $397 founding price is already my best price, and it's only for three shops. But you don't need to decide on price today. Try it free for two weeks and see if it's worth it to you."
@@ -159,7 +159,7 @@ Three rules:
 > "Almost none. You just get job requests."
 
 **"Who do I call if something breaks?"**
-> "Me directly. [Support promise, see the decision at the bottom.] And if the system ever went down, the calls would still ring your phone and reach your voicemail like normal."
+> "Me directly. Text me anytime and I reply within a few hours, 8am to 9pm. And if the system ever went down, the calls would still ring your phone and reach your voicemail like normal."
 
 ---
 
@@ -199,10 +199,10 @@ Three rules:
 
 ---
 
-## YOUR DECISIONS REQUIRED before your first meeting
-1. **Is texting usage included in the price?** Recommendation: **yes, normal usage included.** The builder estimated about $12-26/mo per shop in texting and AI costs (unverified), so a $397 client still leaves a strong margin. "No surprise charges" is easier to sell.
-2. **Your support promise.** Recommendation: **"Text me anytime. I reply within a few hours between 8am and 9pm."** Emergencies don't depend on you, because the system routes them straight to the shop's on-call person.
-3. **File the LLC this week (~$45).** Recommended. It's needed for texting registration, and it lets you say "Returnline LLC."
+## Decided (2026-09-28)
+- **Texting is included** in the monthly price.
+- **Support promise:** text anytime; replies within a few hours, 8am-9pm. Emergencies route to the shop's on-call person, never through Jordan.
+- **LLC:** Jordan will file it later. Until then, say "Returnline is my business, based here in Conway." Texting registration waits on the LLC, so file it before a shop's trial can go live.
 
 ## If a shop says YES tomorrow
 Say: *"Awesome. I'll text you a summary tonight and start the setup."* Collect the intake details (see `first-meeting-playbook.md`), then text Claude right away. The honest timeline: registration can take days to weeks, so set the expectation that it goes live "as soon as the carriers approve it." Never promise a date.

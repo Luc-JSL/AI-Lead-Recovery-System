@@ -177,3 +177,8 @@ Past 25 clients, one founder can't serve everyone alone. That's when we hire (SO
 
 **2026-09-28 (channels)**
 - The founder asked for cold calling. Main channels are now: **(1) daytime calls to book a 10-minute visit, (2) audit-first email, (3) warm drop-offs**, all using the after-hours test result as the hook. Cold walk-ins become optional drop-offs, not pitches. Network asks (family and friends who know shop owners) run alongside.
+
+**2026-09-28 (founder decisions)**
+- **Normal texting and AI usage are included** in the monthly price. Watch it per client in `docs/finance.md`; revisit if one shop's usage gets unusual.
+- **Support promise:** "Text me anytime; I reply within a few hours, 8am-9pm." Emergencies route to the shop's on-call person, not the founder.
+- **LLC deferred** by the founder. It blocks texting registration, so it must be filed as soon as a shop agrees to a trial.
